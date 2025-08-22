@@ -6,9 +6,10 @@
 // 随机种子设置
 let seed = Date.now();
 // 使用种子的简单随机函数
+let rdseed = seed;
 function seededRandom() {
-  seed = (seed * 9301 + 49297) % 233280;
-  return seed / 233280;
+  rdseed = (rdseed * 9301 + 49297) % 233280;
+  return rdseed / 233280;
 }
 
 // 全局变量
@@ -314,7 +315,9 @@ function initWorld() {
   lives = [];
   roundID = 1;
   records = '';
-  
+  seed = Date.now();
+  print(`SEED: ${seed}`);
+
   // 清空土地
   for (let y = 0; y < 10; y++) {
     for (let x = 0; x < 10; x++) {
